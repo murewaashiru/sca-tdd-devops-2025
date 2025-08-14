@@ -1,21 +1,21 @@
 # Multi-stage Dockerfile for fullstack application
-# Stage 1: Build the React frontend
-FROM node:16-alpine AS frontend-build
+# # Stage 1: Build the React frontend
+# FROM node:16-alpine AS frontend-build
 
-# Set working directory for frontend
-WORKDIR /app/frontend
+# # Set working directory for frontend
+# WORKDIR /app/frontend
 
-# Copy frontend package files
-COPY mongodb-express-rest-api/app/package*.json ./
+# # Copy frontend package files
+# COPY mongodb-express-rest-api/app/package*.json ./
 
-# Install frontend dependencies
-RUN npm ci --only=production
+# # Install frontend dependencies
+# RUN npm ci --only=production  --ignore-scripts
 
-# Copy frontend source code
-COPY mongodb-express-rest-api/app/ ./
+# # Copy frontend source code
+# COPY mongodb-express-rest-api/app/ ./
 
-# Build the React application
-RUN npm run build
+# # Build the React application
+# RUN npm run build
 
 # Stage 2: Setup the backend and serve the application
 FROM node:16-alpine AS production
@@ -27,13 +27,13 @@ WORKDIR /app
 COPY mongodb-express-rest-api/server/package*.json ./
 
 # Install backend dependencies
-RUN npm ci --only=production
+RUN npm ci --only=production  --ignore-scripts
 
 # Copy backend source code
 COPY mongodb-express-rest-api/server/ ./
 
 # Copy the built frontend from the previous stage
-COPY --from=frontend-build /app/frontend/build ./public
+# COPY --from=frontend-build /app/frontend/build ./public
 
 # Create a non-root user for security
 RUN addgroup -g 1001 -S nodejs && \
@@ -52,3 +52,10 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 # Start the application
 CMD ["npm", "start"]
+
+# Build & Push to GHCR
+# export GITHUB_TOKEN=YOUR_GITHUB_TOKEN
+# echo $GITHUB_TOKEN | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin
+# docker build -t ghcr.io/YOUR_GITHUB_USERNAME/scalagos-capstone:latest .
+# docker push ghcr.io/YOUR_GITHUB_USERNAME/scalagos-capstone:latest
+# docker pull ghcr.io/YOUR_GITHUB_USERNAME/scalagos-capstone:latest

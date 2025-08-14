@@ -1,3 +1,7 @@
+# Ignore node_modules in both frontend and backend
+mongodb-express-rest-api/app/node_modules
+mongodb-express-rest-api/server/node_modules
+
 # Dependency directories
 node_modules/
 npm-debug.log*
@@ -123,6 +127,11 @@ readme.md
 # Build artifacts
 build/
 dist/
+
+# Ignore build caches
+mongodb-express-rest-api/app/build
+mongodb-express-rest-api/app/.cache
+mongodb-express-rest-api/server/.cache
 
 # Logs
 logs/
