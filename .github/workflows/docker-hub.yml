@@ -9,7 +9,7 @@ on:
       - capstone
 
 env:
-  DOCKER_HUB_REPOSITORY: your-username/scalagos-capstone  # Replace with your Docker Hub username
+  DOCKER_HUB_REPOSITORY: murewaashiru/scalagos-capstone  # Replace with your Docker Hub username
 
 jobs:
   build-and-push-dockerhub:
