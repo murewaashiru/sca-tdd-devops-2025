@@ -106,7 +106,7 @@ You’ll demonstrate your skills in automation, cloud deployment, containerizati
 | Item | Description | Result |
 |------|-------------| ------ |
 | GitHub Repo | Public link to your GitHub project | https://github.com/murewaashiru/sca-tdd-devops-2025/tree/capstone |
-| Render Live URL | Link to your deployed application | https://sca-tdd-devops-2025.onrender.com |
+| Render Live URL | Link to your deployed application | https://sca-tdd-devops-blogs.onrender.com/ |
 | Docker Image | Link to your image on Docker Hub or GHCR | docker pull ghcr.io/murewaashiru/scalagos-capstone:latest |
 | MongoDB Proof | Screenshot or sanitized code snippet showing DB connection | [MongoDb Screenshot](img\mongo-db-screenshot.png)
 
