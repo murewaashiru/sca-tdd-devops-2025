@@ -9,7 +9,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
     # Install and build frontend
-      - name: Setup Node.js (Frontend)
+      - name: Setup React (Frontend)
         uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -37,15 +37,13 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: mongodb-express-rest-api/app
-        run: npm install
+        run: npm ci
 
       - name: Build frontend
         working-directory: mongodb-express-rest-api/app
         run: npm run build
 
-  deploy-to-render:
-    runs-on: ubuntu-latest    
-    steps:
+      # ------------------ DEPLOY TO RENDER ------------------
       - name: Deploy Frontend to Render
         run: |
           curl -X POST "$RENDER_FRONTEND_DEPLOY_HOOK"
