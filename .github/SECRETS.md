@@ -15,7 +15,8 @@ This document outlines the required secrets for the CI/CD pipeline.
 Choose one of the following methods:
 
 #### Method 1: Deploy Hook URL (Recommended)
-- `RENDER_DEPLOY_HOOK_URL` - Your Render service deploy hook URL
+- `RENDER_FRONTEND_DEPLOY_HOOK` - Your Render service deploy hook URL
+- `RENDER_BACKEND_DEPLOY_HOOK` - Your Render service deploy hook URL
 - `RENDER_APP_URL` - Your deployed app URL (for summary display)
 
 #### Method 2: Render API
@@ -40,7 +41,7 @@ Choose one of the following methods:
 2. Go to your service settings
 3. Navigate to the `Deploy` section
 4. Copy the "Deploy Hook" URL
-5. Add it as `RENDER_DEPLOY_HOOK_URL` secret in GitHub
+5. Add it as `RENDER_BACKEND_DEPLOY_HOOK` and `RENDER_FRONTEND_DEPLOY_HOOK` secrets in GitHub
 
 ## Docker Hub Access Token Setup
 

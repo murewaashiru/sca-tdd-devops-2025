@@ -14,7 +14,7 @@ Add these badges to your main README.md to show build status:
 
 ## Live Demo Badge
 ```markdown
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7.svg)](YOUR_RENDER_URL_HERE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7.svg)](https://sca-tdd-devops-blogs.onrender.com/)
 ```
 
 ## Docker Image Badge
