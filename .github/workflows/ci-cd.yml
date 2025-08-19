@@ -47,15 +47,12 @@ jobs:
 
       # ------------------ DEPLOY TO RENDER ------------------
       - name: Deploy Frontend to Render
-        run: |
-          curl -X POST "$RENDER_FRONTEND_DEPLOY_HOOK"
+        run: curl -X POST ${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}
         env:
           RENDER_FRONTEND_DEPLOY_HOOK: ${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}
 
 
       - name: Deploy Backend to Render
-        run: |
-          curl -X POST "$RENDER_BACKEND_DEPLOY_HOOK"
-          echo "✅ Render backend deployment triggered successfully!"
+        run: curl -X POST ${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}
         env:
           RENDER_FRONTEND_DEPLOY_HOOK: ${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}
